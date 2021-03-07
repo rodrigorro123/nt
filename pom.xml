@@ -8,7 +8,7 @@
 		<version>2.1.7.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.votacao</groupId>
+	<groupId>br.com.nt</groupId>
 	<artifactId>votacao</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
