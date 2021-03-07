@@ -69,7 +69,7 @@ public class SessaoServiceImpl implements SessaoService {
 	            .build();
 			}
 			
-			if ( pautaRepository.findByTitulo(sessao.getPauta().getTitulo()).orElse(null) == null ) {
+			if ( pautaRepository.findById(sessao.getPauta().getId()).orElse(null) == null ) {
 	            throw ApiException.builder()
 	            .statusCode(HttpStatus.BAD_REQUEST.value())
 	            .code(ApiException.VALIDATION_ERROR)

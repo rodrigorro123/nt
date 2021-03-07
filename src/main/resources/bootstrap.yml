@@ -8,7 +8,7 @@ info:
   client:
     userBaseUrl: https://user-info.herokuapp.com/
   mysql:
-    urlConection: 'jdbc:mysql://localhost/nt?createDatabaseIfNotExist=TRUE&useTimezone=true&serverTimezone=UTC&useSSL=true'
+    urlConection: 'jdbc:mysql://b10808a6ce7419:0b3f30109b95a6a@us-cdbr-east-03.cleardb.com:3306/heroku_8afbad2c1f5d6f2?reconnect=true'
     user: root
     pwd: 123456
   application:

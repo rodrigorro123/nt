@@ -166,9 +166,9 @@ public class VotacaoServiceImpl implements VotacaoService {
 			
 			if(result.isEmpty() ) {
 	            throw ApiException.builder()
-	            .statusCode(HttpStatus.BAD_REQUEST.value())
-	            .code(ApiException.VALIDATION_ERROR)
-	            .message("Sessao informada invalida")
+	            .statusCode(HttpStatus.NOT_FOUND.value())
+	            .code(ApiException.NOTFOUND_ERROR)
+	            .message("Sessao informada sem votos")
 	            .build();
 			}
 			return result.stream().collect(

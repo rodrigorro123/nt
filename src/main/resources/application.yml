@@ -43,19 +43,5 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
-#    url: ${info.mysql.urlConection}
-#    username: ${info.mysql.user}
-#    password: ${info.mysql.pwd}
-
-#mysql://b10808a6ce7419:ef0750bb@us-cdbr-east-03.cleardb.com/heroku_8afbad2c1f5d6f2?reconnect=true
-    url: 'jdbc:mysql://b10808a6ce7419:ef0750bb@us-cdbr-east-03.cleardb.com/heroku_8afbad2c1f5d6f2?reconnect=true'
-#    username: b10808a6ce7419
-#    password: 0b3f30109b95a6a 
-    
-#    mysql://b8ede2fd643c70:dc0858ed@ us-cdbr-east-02.cleardb.com/heroku_d10ed8bfae0e85f?reconnect=true
-    
-#    url: 'jdbc:mysql://us-cdbr-east-02.cleardb.com/heroku_b28b131411deef4?reconnect=true'
-#    username: be1453100c9a18
-#    password: b617cf96
-
-#spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults = false
+    url: ${info.mysql.urlConection}
+#    url: 'jdbc:mysql://b10808a6ce7419:0b3f30109b95a6a@us-cdbr-east-03.cleardb.com:3306/heroku_8afbad2c1f5d6f2?reconnect=true'
