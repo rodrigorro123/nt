@@ -66,8 +66,8 @@ public class VotacaoTest {
 		try {
 			BDDMockito.doNothing();
 			VotoDto voto = VotoDto.builder()
-								.cpf("123456789")
-								.voto(TipoVotoEnum.SIM)
+								.cpf("987654321")
+								.voto(TipoVotoEnum.NAO)
 								.idSessao(1L)
 								.build();
 			
