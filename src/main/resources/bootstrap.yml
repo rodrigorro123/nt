@@ -1,0 +1,19 @@
+spring:
+  application:
+    index: ${spring.application.name}
+  cloud:
+    config:
+      enabled: false
+info:
+  client:
+    userBaseUrl: https://user-info.herokuapp.com/
+  mysql:
+    urlConection: 'jdbc:mysql://localhost/nt?createDatabaseIfNotExist=TRUE&useTimezone=true&serverTimezone=UTC&useSSL=true'
+    user: root
+    pwd: 123456
+  application:
+    environment: ${spring.profiles.active:default}
+    apiVersion: v@nt.application.fullVersion@
+    port: 3000
+
+    

@@ -1,0 +1,61 @@
+# Endpoints
+endpoints:
+  restart:
+    enabled: true
+    
+#Feign
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 150000
+        loggerLevel: full
+        readTimeout: 150000
+  compression:
+    request:
+      mime-types: "application/json"
+      
+# Integration
+integration:
+  user:
+    baseUrl: ${info.client.userBaseUrl} 
+
+# Server
+server:
+  port: ${info.application.port}
+logging:
+  level:
+    br.com.nt.application.service.client: debug
+    org.springframework.boot.autoconfigure: off 
+
+# Spring
+spring: 
+  application:
+    name: nt
+  jackson:
+    date-format: "yyyy-MM-dd"
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  datasource:
+    url: ${info.mysql.urlConection}
+    username: ${info.mysql.user}
+    password: ${info.mysql.pwd}
+
+#mysql://be1453100c9a18:b617cf96@us-cdbr-east-02.cleardb.com/heroku_b28b131411deef4?reconnect=true
+#    url: 'jdbc:mysql://us-cdbr-iron-east-05.cleardb.net/heroku_d10ed8bfae0e85f?createDatabaseIfNotExist=TRUE&useTimezone=true&reconnect=true'
+#    username: b8ede2fd643c70
+#    password: dc0858ed
+    
+#    mysql://b8ede2fd643c70:dc0858ed@ us-cdbr-east-02.cleardb.com/heroku_d10ed8bfae0e85f?reconnect=true
+    
+#    url: 'jdbc:mysql://us-cdbr-east-02.cleardb.com/heroku_b28b131411deef4?reconnect=true'
+#    username: be1453100c9a18
+#    password: b617cf96
+
+#spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults = false
