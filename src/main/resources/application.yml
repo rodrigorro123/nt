@@ -33,6 +33,7 @@ spring:
   application:
     name: nt
   jackson:
+    default-property-inclusion: non-null
     date-format: "yyyy-MM-dd"
   jpa:
     hibernate:
@@ -44,4 +45,29 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
     url: ${info.mysql.urlConection}
-#    url: 'jdbc:mysql://b10808a6ce7419:0b3f30109b95a6a@us-cdbr-east-03.cleardb.com:3306/heroku_8afbad2c1f5d6f2?reconnect=true'
+
+    
+  cloud:
+    stream:
+      default:
+        contentType: application/json
+      bindings:
+        votacaoOutput:
+          destination: nt-votacao
+          group: group
+          durableSubscription: true
+          consumer:
+            concurrency: 3
+            maxAttempts: 5
+            backOffInitialInterval: 30000
+            backOffMaxInterval: 60000
+            acknowledgeMode: AUTO
+      binders:
+        rabbit:
+          type: rabbit
+  rabbitmq:
+    host: shark.rmq.cloudamqp.com 
+    #port: 49388
+    username: obwlpzqe
+    password: aGNhvj7dkYtGz3vy2rzLqcVKe48hRf3R
+    virtual-host: obwlpzqe

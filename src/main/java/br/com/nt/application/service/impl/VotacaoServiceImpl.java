@@ -69,7 +69,6 @@ public class VotacaoServiceImpl implements VotacaoService {
 	public Boolean validaVotacao(VotoDto voto) throws ApiException {
 		
 		try {
-			
 			if(validaUserExterno(voto.getCpf())) {
 	            throw ApiException.builder()
 	            .statusCode(HttpStatus.BAD_REQUEST.value())

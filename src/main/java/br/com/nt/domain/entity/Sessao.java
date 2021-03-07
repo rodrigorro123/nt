@@ -61,6 +61,8 @@ public class Sessao  implements Serializable {
 	@Column(name = "dt_validade")
 	 private LocalDateTime dtValidade;
 
+	@Column(name = "flag_ativo")
+	 private String flgAtivo;
 	
 	@ManyToOne
     @JoinColumn(name="id_pauta", nullable=false)

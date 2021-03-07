@@ -1,6 +1,7 @@
 package br.com.nt.application.service.impl;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
@@ -94,7 +95,7 @@ public class SessaoServiceImpl implements SessaoService {
 	            .message(ae.getMessage())
 	            .build();
 			} catch (Exception e) {
-				log.info("Erro ao salvar sessao- " + e);
+				log.error("Erro ao salvar sessao- " + e);
 	            throw ApiException.builder()
 	            .statusCode(HttpStatus.BAD_REQUEST.value())
 	            .code(ApiException.VALIDATION_ERROR)
@@ -103,8 +104,37 @@ public class SessaoServiceImpl implements SessaoService {
 			}
 		}
 
+	@Override
+	public List<Sessao> identificaSessaoFinalizada() throws ApiException {
+		try {
+			
+			return sessaoRepository.findBySessaoFinalizada();
+			
+		} catch (Exception e) {
+			log.error("Erro ao identificar sessao finalizada - " + e);
+            throw ApiException.builder()
+            .statusCode(HttpStatus.BAD_REQUEST.value())
+            .code(ApiException.VALIDATION_ERROR)
+            .message("Erro ao identificar sessao finalizada")
+            .build();
 
+		}
+	}
+	
+	@Override
+	public void atualizaSessaoFinalizada(Sessao sessao) throws ApiException {
+		try {
+			
+			sessaoRepository.saveAndFlush(sessao);
+			
+		} catch (Exception e) {
+			log.error("Erro ao identificar sessao finalizada - " + e);
+            throw ApiException.builder()
+            .statusCode(HttpStatus.BAD_REQUEST.value())
+            .code(ApiException.VALIDATION_ERROR)
+            .message("Erro ao identificar sessao finalizada")
+            .build();
+
+		}
+	}
 }
-
-
-
