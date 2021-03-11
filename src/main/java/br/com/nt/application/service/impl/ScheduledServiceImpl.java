@@ -20,7 +20,6 @@ public class ScheduledServiceImpl implements ScheduledService {
 	private final MQService mq;
 	private final SessaoService sessaoService;
 	
-		
     @Scheduled(fixedDelay = 60L * 1000L) // todo minuto realizacao a verificação
     //@Scheduled(fixedDelay = 30L * 60L * 1000L) // a cada 1/2hora realizacao a verificação
     public void resendInvoice() {

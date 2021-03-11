@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.BDDMockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -28,9 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @AutoConfigureMockMvc
 public class VotacaoTest {
-// 
-//	@Mock 
-//	private RestTemplate mockRestTemplate;
 	
 	@Autowired
 	private VotacaoServiceImpl service;
@@ -44,7 +40,7 @@ public class VotacaoTest {
 	@Test
 	public void testRealizarValidacaoVotacao() {
 		try {
-			BDDMockito.doNothing();
+		//	BDDMockito.doNothing();
 			VotoDto voto = VotoDto.builder()
 								.cpf("123456789")
 								.voto(TipoVotoEnum.SIM)
@@ -64,15 +60,14 @@ public class VotacaoTest {
 	@Test
 	public void testRealizarVotacao() {
 		try {
-			BDDMockito.doNothing();
+			//BDDMockito.doNothing();
 			VotoDto voto = VotoDto.builder()
 								.cpf("987654321")
 								.voto(TipoVotoEnum.NAO)
 								.idSessao(1L)
 								.build();
 			
-			
-			String result =  this.service.adicionaVoto(voto);
+  			String result =  this.service.adicionaVoto(voto);
 
 			assertThat(result).as("votacao realizada com sucesso") ;
 
